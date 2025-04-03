@@ -1,62 +1,21 @@
 {
     "$metadata": {
-        "uris": {
-            "jsonLdContext": "https://example.com/path/to/file/context.jsonld"
-        },
-        "version": "1.8",
-        "type": "KYCVerfication",
         "iden3Serialization": {
             "slotIndexA": "Full_Legal_Name",
             "slotIndexB": "DateOfBirth",
-            "slotValueA": "US_Citizen",
-            "slotValueB": "email_Address"
-        }
+            "slotValueA": "Country",
+            "slotValueB": "Email"
+        },
+        "type": "KYCVerfication",
+        "uris": {
+            "jsonLdContext": "ipfs://QmVUYx1sUUnVsFUVLwGyRocJyzNgKDLDJrM9RLtrwENQ2i"
+        },
+        "version": "2.2"
     },
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "description": "Verification for RWA DeFi user ",
-    "title": "KYC Verification",
+    "title": "KYC Verification V2",
     "properties": {
-        "credentialSubject": {
-            "description": "Stores the data of the credential",
-            "title": "Credential subject",
-            "properties": {
-                "id": {
-                    "description": "Stores the DID of the subject that owns the credential",
-                    "title": "Credential subject ID",
-                    "format": "uri",
-                    "type": "string"
-                },
-                "Full_Legal_Name": {
-                    "$comment": "Full Legal Name",
-                    "description": "A verified representation of the user’s name",
-                    "title": "Full Legal Name",
-                    "maxLength": 99,
-                    "minLength": 2,
-                    "pattern": "^[A-Za-z\\s'\\-]$",
-                    "type": "string"
-                },
-                "DateOfBirth": {
-                    "description": "The user date of birth ",
-                    "title": "Date of Birth",
-                    "type": "integer"
-                },
-                "US_Citizen": {
-                    "description": "Verify the user whether is US citizen or not ",
-                    "title": "US Citizen",
-                    "type": "boolean"
-                },
-                "email_Address": {
-                    "description": "The email address for communication process",
-                    "title": "Email Address",
-                    "type": "string"
-                }
-            },
-            "required": [
-                "Full_Legal_Name",
-                "DateOfBirth"
-            ],
-            "type": "object"
-        },
         "@context": {
             "type": [
                 "string",
@@ -100,6 +59,49 @@
                 "type": "string"
             }
         },
+        "credentialSubject": {
+            "description": "Stores the data of the credential",
+            "title": "Credential subject",
+            "properties": {
+                "Full_Legal_Name": {
+                    "$comment": "Full Legal Name",
+                    "description": "A verified representation of the user’s name",
+                    "title": "Full Legal Name",
+                    "maxLength": 99,
+                    "minLength": 2,
+                    "type": "string"
+                },
+                "DateOfBirth": {
+                    "description": "The user date of birth ",
+                    "title": "Date of Birth",
+                    "format": "date",
+                    "type": "string"
+                },
+                "Country": {
+                    "$comment": "Which country citizen",
+                    "description": "Verify the user is which country citizen  ",
+                    "title": "Country",
+                    "type": "string"
+                },
+                "Email": {
+                    "description": "The email address for communication process",
+                    "title": "Email Address",
+                    "format": "email",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "Stores the DID of the subject that owns the credential",
+                    "title": "Credential subject ID",
+                    "format": "uri",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "Full_Legal_Name",
+                "DateOfBirth"
+            ],
+            "type": "object"
+        },
         "credentialSchema": {
             "properties": {
                 "id": {
@@ -140,12 +142,12 @@
         }
     },
     "required": [
-        "credentialSubject",
         "@context",
         "id",
         "issuanceDate",
         "issuer",
         "type",
+        "credentialSubject",
         "credentialSchema"
     ],
     "type": "object"

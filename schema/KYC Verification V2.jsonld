@@ -9,8 +9,8 @@
                 "@context": {
                     "@propagate": true,
                     "@protected": true,
-                    "polygon-vocab": "urn:uuid:885f5eb3-87c5-425c-b8b1-24ce4e942e5f#",
-                    "iden3_serialization": "iden3:v1:slotIndexA=Full_Legal_Name&slotIndexB=DateOfBirth&slotValueA=US_Citizen&slotValueB=email_Address",
+                    "polygon-vocab": "urn:uuid:fd5daeb5-6837-437a-a1e3-bd71af35e970#",
+                    "iden3_serialization": "iden3:v1:slotIndexA=Full_Legal_Name&slotIndexB=DateOfBirth&slotValueA=Country&slotValueB=Email",
                     "xsd": "http://www.w3.org/2001/XMLSchema#",
                     "Full_Legal_Name": {
                         "@id": "polygon-vocab:Full_Legal_Name",
@@ -18,18 +18,18 @@
                     },
                     "DateOfBirth": {
                         "@id": "polygon-vocab:DateOfBirth",
-                        "@type": "xsd:integer"
+                        "@type": "xsd:dateTime"
                     },
-                    "US_Citizen": {
-                        "@id": "polygon-vocab:US_Citizen",
-                        "@type": "xsd:boolean"
+                    "Country": {
+                        "@id": "polygon-vocab:Country",
+                        "@type": "xsd:string"
                     },
-                    "email_Address": {
-                        "@id": "polygon-vocab:email_Address",
+                    "Email": {
+                        "@id": "polygon-vocab:Email",
                         "@type": "xsd:string"
                     }
                 },
-                "@id": "urn:uuid:e3aeab49-d193-4dde-a061-8f06478cf7ac"
+                "@id": "urn:uuid:16237937-de3b-4213-a5e6-6c2d778342b9"
             }
         }
     ]
